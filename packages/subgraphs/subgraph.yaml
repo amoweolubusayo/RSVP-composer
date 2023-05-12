@@ -1,0 +1,35 @@
+specVersion: 0.0.4
+features:
+  - ipfsOnEthereumContracts
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: RSVP
+    network: celo-alfajores
+    source:
+      address: "0xc85CA226772cA949801EfCA6B9d153fB4a833aF7"
+      abi: RSVP
+      startBlock: 17702677
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Event
+        - Account
+        - RSVP
+        - Confirmation
+      abis:
+        - name: RSVP
+          file: ./abis/alfajores/RSVP.json
+      eventHandlers:
+        - event: AttendeeConfirmed(bytes32,address)
+          handler: handleConfirmedAttendee
+        - event: DepositsPaidOut(bytes32)
+          handler: handleDepositsPaidOut
+        - event: NewEventCreated(bytes32,address,uint256,uint256,uint256,string)
+          handler: handleNewEventCreated
+        - event: NewRSVP(bytes32,address)
+          handler: handleNewRSVP
+      file: ./src/mapping.ts

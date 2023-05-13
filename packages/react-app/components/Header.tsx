@@ -33,12 +33,12 @@ export default function Header() {
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  <a
+                  <Link
                     href="/"
                     className="inline-flex items-center border-b-2 border-black px-1 pt-1 text-sm font-medium text-gray-900"
                   >
                     Home
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="ml-10 space-x-4 flex items-center">

@@ -15,6 +15,7 @@ export default function Navbar() {
   }, []);
 
   return (
+    <>
     mounted && (
       <header className="bg-white border-b-2 border-gray-100">
         <nav
@@ -34,5 +35,6 @@ export default function Navbar() {
         </nav>
       </header>
     )
+    </>
   );
 }
